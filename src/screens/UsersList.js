@@ -42,7 +42,7 @@ class UsersList extends Component {
             <View style={styles.cardParent}>
                 <Image source={{ uri: item.avatar_url }} style={{ height: 40, width: 45, marginRight: 10 }} />
                 <View>
-                    <Text>{item.login}</Text>
+                    <Text>{item.login}   <Text style={{fontSize: 12, fontWeight: 'bold'}}>{item.gravatar_id}</Text></Text>
                     <Text>{item.id}</Text>
                 </View>
             </View>
@@ -68,12 +68,12 @@ class UsersList extends Component {
                             onEndEditing={this.searchUsers}
                         />
                     </View>
-
-                    <FlatList
+                </View>
+                <FlatList
                         data={users}
                         renderItem={(item) => this._renderItem(item.item)}
+                        style={{paddingHorizontal: 20}}
                     />
-                </View>
             </SafeAreaView>
         );
     }
